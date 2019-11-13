@@ -120,22 +120,28 @@ body {
     /* padding: 20vh 0 0; */
     text-align: center;
 }
-nav {
+nav.team-nav {
   position: absolute;
   top: 10px;
   left: calc(50vw - 20px);
+}
+nav.mission-nav {
+  position: absolute;
+  top: 10px;
+  right: calc(50vw - 20px);
 }
 .slide {
     position: absolute;
     top: 0;
     left: 0;
+    /* right: 0; */
     width: 100vw;
     height: 100vh;
     height: var(--vh);
     transition: top 1s ease;
     z-index: -1;
 }
-.slide-animate {
+.slide-animate-team, .slide-animate-mission {
   top: calc(100vh - 40px);
   top: calc(var(--vh) - 40px);
 }
@@ -150,7 +156,21 @@ nav {
   transition: top 1s ease;
   overflow-y: scroll;
 }
+.mission {
+  width: 100vw;
+  height: calc(100vh - 40px);
+  height: calc(var(--vh) - 40px);
+  position: absolute;
+  top: calc(-1 * (100vh - 40px));
+  top: calc(-1 * (var(--vh) - 40px));
+  right: 0;
+  transition: top 1s ease;
+  overflow-y: scroll;
+}
 .team-animate{
+  top: 0;
+}
+.mission-animate{
   top: 0;
 }
 .locations {
@@ -214,16 +234,16 @@ a {
     color: inherit;
     transition: color 500ms ease;
 }
-a:hover, li:hover {
+a:hover, nav li:hover {
     color: dodgerblue;
     cursor: pointer;
 }
-ul {
+nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-li {
+nav li {
   margin: 0;
   padding: 0;
   font-size: .8rem;
@@ -231,6 +251,33 @@ li {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
+}
+.mission ol {
+  list-style: none;
+  counter-reset: item;
+}
+.mission li {
+  counter-increment: item;
+  margin-bottom: 5px;
+  font-size: .9rem;
+}
+.mission li:before {
+  margin-right: 10px;
+  content: counter(item);
+  color: dodgerblue;
+  text-align: center;
+  display: inline-block;
+}
+.mission span.cite {
+  color: dodgerblue;
+  font-size: .9rem;
+  margin: 0 0 0 2px;
+  position: relative;
+  bottom: 6px;
+}
+.mission span.draft {
+  font-size: .8rem;
+  color: black;
 }
 /* .fadeInS {
     animation: fadeinS 2s;
@@ -359,16 +406,22 @@ li {
     article {
       padding: 100px 25vw;
     }
-    nav {
+    nav.team-nav {
       position: absolute;
       transform: rotate(-90deg);
       top: calc(50vh - 10px);
       left: 0;
     }
-    .slide {
-        transition: left 1s ease;
+    nav.mission-nav {
+      position: absolute;
+      transform: rotate(90deg);
+      top: calc(50vh - 10px);
+      right: 0;
     }
-    .slide-animate {
+    .slide {
+      transition: left 1s ease;
+    }
+    .slide-animate-team {
       left: calc(100vw - 40px);
       top: 0;
     }
@@ -379,8 +432,23 @@ li {
       left: calc(-1 * (100vw - 40px));
       transition: left 1s ease;
     }
-    .team-animate{
+    .team-animate {
       left: 0;
+      top: 0;
+    }
+    .slide-animate-mission {
+      left: calc(-1 * (100vw - 40px));
+      top: 0;
+    }
+    .mission {
+      width: calc(100vw - 40px);
+      height: 100vh;
+      top: 0;
+      left: calc(100vw + 40px);
+      transition: left 1s ease;
+    }
+    .mission-animate {
+      left: 40px;
       top: 0;
     }
 }
