@@ -5,6 +5,7 @@ $(document).ready(function() {
     colors();
     topPadding();
     mobileHeight();
+    citeHighlight();
     // run function on resize of the window
     $(window).resize(function() {
         topPadding();
@@ -21,7 +22,6 @@ function mobileHeight() {
   var vh = height + 'px';
   var html = document.getElementsByTagName('html')[0];
   html.style.setProperty("--vh", vh);
-  console.log(vh);
 }
 function teamSlide() {
   $('.button-team').click(function() {
@@ -68,4 +68,20 @@ function topPadding() {
     var wHeight = $(window).height();
     var tPadding = ((wHeight - cHeight) / 2);
     $('main').css("padding-top", tPadding);
+}
+function citeHighlight() {
+  var list = $('#citeList li').length;
+  $("span[id*='cite']").mouseenter(function(){
+    var id = $(this).attr('id');
+    var charCount = $('.' + id).text().length;
+    var time = charCount / 60;
+    var transVal = 'background-position ' + time + 's ease'
+    $('.' + id).css('transition', transVal);
+    $("span[id*='cite']").mouseleave(function(){
+      for (var i = 0; i < (list + 1); i++) {
+        $('.cite-' + i).removeClass('highlight');
+      }
+    });
+    $('.' + id).addClass( "highlight" );
+  });
 }

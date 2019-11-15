@@ -23,12 +23,12 @@ html {
  */
 
 ::-moz-selection {
-    background: #b3d4fc;
+    background: gold;
     text-shadow: none;
 }
 
 ::selection {
-    background: #b3d4fc;
+    background: gold;
     text-shadow: none;
 }
 
@@ -275,50 +275,31 @@ nav li {
   position: relative;
   bottom: 6px;
 }
+.mission span.cite:hover {
+  cursor: n-resize;
+}
 .mission span.draft {
   font-size: .8rem;
-  color: black;
 }
-/* .fadeInS {
-    animation: fadeinS 2s;
+.dodgerBlue {
+  color: dodgerBlue;
 }
-
-@keyframes fadeinS {
-    from { opacity: 0; }
-    50%  { opacity: 0; }
-    to   { opacity: 1; }
-}
-.fadeInM {
-    animation: fadeinM 4s;
-}
-
-@keyframes fadeinM {
-    from { opacity: 0; }
-    50%  { opacity: 0; }
-    to   { opacity: 1; }
-}
-.fadeInL {
-    animation: fadeinL 6s;
+.cite-1, .cite-2, .cite-3, .cite-4, .cite-5 {
+  background-image: linear-gradient(90deg,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,0) 50%,
+      dodgerBlue 50%,
+      dodgerBlue 100%);
+  background-size: 200%;
+  line-height: 1.5em;
+  padding: 3px 5px;
 }
 
-@keyframes fadeinL {
-    from { opacity: 0; }
-    50%  { opacity: 0; }
-    to   { opacity: 1; }
+.highlight {
+  cursor: pointer;
+  background-position: -100%;
+
 }
-.fadeInXL {
-    animation: fadeinXL 8s;
-}
-
-@keyframes fadeinXL {
-    from { opacity: 0; }
-    50%  { opacity: 0; }
-    to   { opacity: 1; }
-} */
-
-
-
-
 
 /* ==========================================================================
    Helper classes
@@ -399,12 +380,11 @@ nav li {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
-
 @media only screen and (min-width: 500px) {
     body {font-size: 18px;}
     h1 {font-size: 5.063rem;}
     article {
-      padding: 100px 25vw;
+      padding: 100px 10vw;
     }
     nav.team-nav {
       position: absolute;
@@ -452,7 +432,11 @@ nav li {
       top: 0;
     }
 }
-
+@media only screen and (min-width: 1000px) {
+   article {
+     padding: 100px 25vw;
+   }
+ }
 @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 1.25dppx),
