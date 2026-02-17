@@ -92,15 +92,13 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-html {
-   --vh: 0;
-   --vh40: 0;
-}
 html, body {
     margin: 0;
     padding: 0;
     width: 100vw;
-    overflow: hidden;
+}
+html {
+  scroll-behavior: smooth;
 }
 body {
     font-size: 16px;
@@ -117,66 +115,12 @@ body {
 }
 #container {
     margin: 0;
-    /* padding: 20vh 0 0; */
+    padding: 0; 
     text-align: center;
+    height: calc(100vh - 150px);
 }
-nav.team-nav {
-  position: absolute;
-  top: 10px;
-  left: calc(50vw - 20px);
-}
-nav.mission-nav {
-  position: absolute;
-  top: 10px;
-  right: calc(50vw - 20px);
-}
-.slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* right: 0; */
-    width: 100vw;
-    height: 100vh;
-    height: var(--vh);
-    transition: top 1s ease;
-    z-index: -1;
-}
-.slide-animate-team, .slide-animate-mission {
-  top: calc(100vh - 40px);
-  top: calc(var(--vh) - 40px);
-}
-.team {
-  width: 100vw;
-  height: calc(100vh - 40px);
-  height: calc(var(--vh) - 40px);
-  position: absolute;
-  top: calc(-1 * (100vh - 40px));
-  top: calc(-1 * (var(--vh) - 40px));
-  left: 0;
-  transition: top 1s ease;
-  overflow-y: scroll;
-}
-.mission {
-  width: 100vw;
-  height: calc(100vh - 40px);
-  height: calc(var(--vh) - 40px);
-  position: absolute;
-  top: calc(-1 * (100vh - 40px));
-  top: calc(-1 * (var(--vh) - 40px));
-  right: 0;
-  transition: top 1s ease;
-  overflow-y: scroll;
-}
-.team-animate{
-  top: 0;
-}
-.mission-animate{
-  top: 0;
-}
-.locations {
-    position: absolute;
-    bottom: 0;
-    width: 100vw;
+main {
+  padding-top: calc(((100vh - 150px) / 2) - 160px);
 }
 article {
   padding: 25px 5vw;
@@ -191,6 +135,7 @@ h1 {font-family: fatfrank, sans-serif;
 h1 .kern {letter-spacing: 0;}
 h2 {
     font-size: 3.375rem;
+    margin-top: 0;
 }
 h3 {
     font-size: 2.25rem;
@@ -198,9 +143,9 @@ h3 {
 h4 {
     font-size: 1.4rem;
     line-height: 1rem;
-    text-transform: lowercase;
+    text-transform: uppercase;
     letter-spacing: 1px;
-    font-weight: 300;
+    font-weight: 700;
     margin-top: 0;
 }
 h5 {
@@ -238,19 +183,28 @@ a:hover, nav li:hover {
     color: dodgerblue;
     cursor: pointer;
 }
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  /*height: 50px;*/
+  padding: 25px;
+}
 nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  align-self: center;
 }
 nav li {
   margin: 0;
-  padding: 0;
+  padding: 0 25px;
   font-size: .8rem;
   line-height: 1rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 700;
+  float: left;
 }
 .mission ol {
   list-style: none;
@@ -385,51 +339,6 @@ nav li {
     h1 {font-size: 5.063rem;}
     article {
       padding: 100px 10vw;
-    }
-    nav.team-nav {
-      position: absolute;
-      transform: rotate(-90deg);
-      top: calc(50vh - 10px);
-      left: 0;
-    }
-    nav.mission-nav {
-      position: absolute;
-      transform: rotate(90deg);
-      top: calc(50vh - 10px);
-      right: 0;
-    }
-    .slide {
-      transition: left 1s ease;
-    }
-    .slide-animate-team {
-      left: calc(100vw - 40px);
-      top: 0;
-    }
-    .team {
-      width: calc(100vw - 40px);
-      height: 100vh;
-      top: 0;
-      left: calc(-1 * (100vw - 40px));
-      transition: left 1s ease;
-    }
-    .team-animate {
-      left: 0;
-      top: 0;
-    }
-    .slide-animate-mission {
-      left: calc(-1 * (100vw - 40px));
-      top: 0;
-    }
-    .mission {
-      width: calc(100vw - 40px);
-      height: 100vh;
-      top: 0;
-      left: calc(100vw + 40px);
-      transition: left 1s ease;
-    }
-    .mission-animate {
-      left: 40px;
-      top: 0;
     }
 }
 @media only screen and (min-width: 1000px) {

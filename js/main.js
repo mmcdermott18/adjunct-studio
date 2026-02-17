@@ -1,10 +1,10 @@
 $(document).ready(function() {
     // run function on initial page load
-    teamSlide();
-    missionSlide();
+    // teamSlide();
+    // missionSlide();
     colors();
-    topPadding();
-    mobileHeight();
+    // topPadding();
+    // mobileHeight();
     citeHighlight();
     // run function on resize of the window
     $(window).resize(function() {
@@ -50,17 +50,25 @@ function colors() {
         //in between these two times
         $('body').removeClass('dark');
         $('body').addClass('light');
+        $('.work').removeClass('light');
+        $('.work').addClass('dark');
+        $('.mission').removeClass('dark');
+        $('.mission').addClass('light');
         $('.team').removeClass('light');
         $('.team').addClass('dark');
-        $('.mission').removeClass('light');
-        $('.mission').addClass('dark');
+        $('footer').removeClass('dark');
+        $('footer').addClass('light');
     } else {
         $('body').removeClass('light');
         $('body').addClass('dark');
+        $('.work').removeClass('dark');
+        $('.work').addClass('light');
+        $('.mission').removeClass('light');
+        $('.mission').addClass('dark');
         $('.team').removeClass('dark');
         $('.team').addClass('light');
-        $('.mission').removeClass('dark');
-        $('.mission').addClass('light');
+        $('footer').removeClass('light');
+        $('footer').addClass('dark');
     }
 }
 function topPadding() {
